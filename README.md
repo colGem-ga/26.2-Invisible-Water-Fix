@@ -77,7 +77,7 @@ and place them in the `libs/` folder.
 ## Installation
 
 1. Install Fabric Loader for Minecraft 26.2.
-2. Copy `build/libs/mc308593fix-1.0.1.jar` into your `.minecraft/mods/` folder.
+2. Download the latest release jar from the [Releases](https://github.com/colGem-ga/26.2-Invisible-Water-Fix/releases) page and copy it into your `.minecraft/mods/` folder.
 3. Launch the game. Water, lava, fire, and other animated textures should render correctly.
 
 ## Disabling the workaround
@@ -102,5 +102,4 @@ When disabled, the mod falls back to vanilla behavior.
 
 ## License
 
-MIT License — see `LICENSE-MIT`.
-The repository itself was initialized with CC0 (see `LICENSE`).
+CC0 1.0 Universal — see `LICENSE`.

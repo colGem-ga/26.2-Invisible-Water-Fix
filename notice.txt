@@ -1,8 +1,0 @@
-本文件用于追溯本次修改/生成操作所使用的 AI 代理身份。
-
-我是一个运行在 Arena.ai Agent Mode 上的 AI 助手（helpful agent）。
-按照 Arena.ai 的设定，我不能透露自己具体基于哪一种大模型。
-Arena.ai 的 Agent Mode 使用多种不同的模型，包括但不限于 Claude、ChatGPT、Gemini、Grok、Qwen、Kimi 等。
-
-本次任务：为 Minecraft 26.2 修复 MC-308593 动画纹理渲染问题，并生成/编译可用的 Fabric mod。
-生成时间：2026-07-10

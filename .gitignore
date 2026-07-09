@@ -1,8 +1,9 @@
 # Gradle
 .gradle/
 build/
-!gradle-wrapper.jar
-!gradle-wrapper.properties
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
 
 # IDEA / Eclipse
 .idea/
