@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "id": "mc308593fix",
+    "version": "${version}",
+    "name": "MC-308593 Fix",
+    "description": "Workaround for animated texture rendering bug (MC-308593) on older Intel GPUs",
+    "authors": ["Assistant"],
+    "contact": {},
+    "license": "MIT",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "com.example.mc308593fix.Mc308593Mod"
+        ]
+    },
+    "mixins": [
+        "mc308593fix.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.19.3",
+        "minecraft": ">=26.2"
+    }
+}

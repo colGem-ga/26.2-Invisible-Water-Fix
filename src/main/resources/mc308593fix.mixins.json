@@ -1,0 +1,11 @@
+{
+    "required": true,
+    "package": "com.example.mc308593fix.mixin",
+    "compatibilityLevel": "JAVA_25",
+    "mixins": [
+        "SpriteContentsAnimatedTextureMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# IDEA / Eclipse
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# Minecraft / Fabric
+run/
+libs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Token / credentials (never commit)
+*.token
+*.key
+.env

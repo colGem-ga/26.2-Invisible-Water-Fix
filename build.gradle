@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+}
+
+dependencies {
+    compileOnly files('libs/minecraft-26.2-client.jar')
+    compileOnly files('libs/fabric-loader-0.19.3.jar')
+    compileOnly 'org.spongepowered:mixin:0.8.7'
+    compileOnly 'it.unimi.dsi:fastutil:8.5.18'
+    compileOnly 'org.slf4j:slf4j-api:2.0.17'
+}
+
+// Download the two files that are not available from normal Maven repositories.
+// You can also place them manually in the libs/ folder (e.g. from your launcher cache).
+tasks.register('downloadDependencies') {
+    doLast {
+        file('libs').mkdirs()
+
+        def mcUrl = 'https://piston-data.mojang.com/v1/objects/2dc72797acbc1b63fc16a11c4ac393605f453754/client.jar'
+        def mcFile = file('libs/minecraft-26.2-client.jar')
+        if (!mcFile.exists()) {
+            println "Downloading Minecraft 26.2 client jar..."
+            mcFile.bytes = new URI(mcUrl).toURL().openStream().bytes
+        }
+
+        def loaderUrl = 'https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.19.3/fabric-loader-0.19.3.jar'
+        def loaderFile = file('libs/fabric-loader-0.19.3.jar')
+        if (!loaderFile.exists()) {
+            println "Downloading Fabric Loader 0.19.3..."
+            loaderFile.bytes = new URI(loaderUrl).toURL().openStream().bytes
+        }
+    }
+}
+
+compileJava.dependsOn downloadDependencies
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}
